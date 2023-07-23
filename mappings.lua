@@ -6,12 +6,16 @@
 return {
   -- first key is the mode
   n = {
+    -- using primeagen tmux-sessionizer with Ctrl F
+    ["<C-f>"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", desc = "fzf and tmux-sessionizer" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
